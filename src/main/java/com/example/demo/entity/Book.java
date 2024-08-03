@@ -1,4 +1,5 @@
 package com.example.demo.entity;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ public class Book {
     @NotBlank(message = "Author is mandatory")
     private String author;
 
-    @Pattern(regexp = "\\d{3}-\\d{10}", message = "ISBN must follow the pattern XXX-XXXXXXXXXX")
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{5}-\\d{2}-\\d{1}", message = "ISBN must follow the pattern XXX-XX-XXXXX-XX-X")
     private String isbn;
 
     @PastOrPresent(message = "Published date cannot be in the future")
@@ -60,6 +61,4 @@ public class Book {
     public void setPublishedDate(LocalDate publishedDate) {
         this.publishedDate = publishedDate;
     }
-
-   
 }
